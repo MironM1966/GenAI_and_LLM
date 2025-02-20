@@ -8,6 +8,7 @@ st.markdown("""
 This is a sample markdown
 """)
 
+openai_api_key = st.sidebar.text_input("open AI key")
 name = st.text_input("Enter text", "here")
 option = st.radio("Choose one option:", options = ["Option1", "Option2"], index=0)
 
@@ -16,7 +17,7 @@ print(value)
 print(option)
 
 def gen_response(txt):
-    llm = OpenAI(temperature = 0.7, openai_api_key="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")
+    llm = OpenAI(temperature = 0.7, openai_api_key=openai_api_key)
     st.info(llm(txt))
 
 with st.form("Examp APP"):
